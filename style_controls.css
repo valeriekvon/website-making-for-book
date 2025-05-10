@@ -20,7 +20,7 @@
 /* regular weight (400) */
 @font-face {
     font-family: 'ABCDinamo';
-    src: url('/fonts/ABCDiatype-Regular-Trial.otf') format('opentype');
+    src: url('/website-making-for-book/fonts/ABCDiatype-Regular-Trial.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -29,7 +29,7 @@
   /* medium weight (500) */
   @font-face {
     font-family: 'ABCDinamo';
-    src: url('/fonts/ABCDiatype-Medium-Trial.otf') format('opentype');
+    src: url('/website-making-for-book/fonts/ABCDiatype-Medium-Trial.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
