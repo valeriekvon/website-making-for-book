@@ -1,0 +1,100 @@
+/* overlay: hidden by default, full-screen when .show */
+#controls {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;  height: 100vh;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+  #controls.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+/* regular weight (400) */
+@font-face {
+    font-family: 'ABCDinamo';
+    src: url('/fonts/ABCDiatype-Regular-Trial.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* medium weight (500) */
+  @font-face {
+    font-family: 'ABCDinamo';
+    src: url('/fonts/ABCDiatype-Medium-Trial.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* checklist styling */
+  #print-check {
+    font-family: 'ABCDinamo', sans-serif;
+    font-weight: 500;   
+    width: 50vw;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: #ffffff;
+    padding: 1em 2em;
+    border-radius: 8px;
+    column-count: 2;
+    column-gap: 2em;
+    list-style: none;
+    margin-bottom: 1em;
+  }
+  #print-check label {
+    font-family: 'ABCDinamo', sans-serif;
+  font-weight: 500;   
+    display: block;
+    margin-bottom: .5em;
+    color: rgb(0, 0, 0);
+  }
+  #print-check input {
+    transform: scale(1.3);
+    margin-right: .5em;
+  }
+  
+  /* Make Book button — always visible, lifted above the overlay */
+  #make-book {
+    font-family: 'ABCDinamo', sans-serif;
+    font-weight: 500; 
+    position: fixed;
+    top: 8px; right: 8px;
+    z-index: 1001;
+    background: rgba(165, 165, 165, 0.1);
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #make-book:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  /* when in “checklist” mode (you already toggle this class in JS) */
+  #make-book.checklist {
+    background: #fff;
+    color: #000;
+  }
+  
+  /* Cancel button inside overlay */
+  #cancel {
+    font-family: 'ABCDinamo', sans-serif;
+    font-weight: 500; 
+    background: transparent;
+    border: none;
+    color: #fff;
+    margin-top: 1em;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  

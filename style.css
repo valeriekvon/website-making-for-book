@@ -1,0 +1,73 @@
+body {
+    background-color: rgb(255, 255, 255);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.chapter-viewport {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    /* background-color: black; */
+  }
+  
+  .chapter {
+    color: black;
+    display: flex;
+    /* background-color: black; */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    /* ensure the snaps happen in the very center */
+    scroll-padding-left: 50vw;
+    scroll-padding-right: 50vw;
+    scroll-behavior: smooth;
+    height: 100vh;
+    margin: 0 auto;
+  }
+  
+  /* Each 2-page spread “child” */
+  .spread {
+    background-color: black;
+    flex-shrink: 0;
+    display: flex;
+    /* width: sum of two pages */
+    /* you can also let it size itself based on its contents */
+    scroll-snap-align: center;
+    scroll-snap-stop: always; /* prevent overshoot */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Individual page canvases */
+  .page {
+    flex-shrink: 0;
+    height: 100vh;
+    /* width set in JS to match the viewport‐scaled PDF page */
+  }
+  
+  .chapter {
+    max-width: 927.0866141732284px; /* Adjust to 2 × natural page width */
+    margin: 0 auto;
+  }
+
+  .chapter::-webkit-scrollbar {
+    display: none;
+    }
+  #book-shadow {
+    position: fixed;
+    /* top: 0; */
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+  }
+    

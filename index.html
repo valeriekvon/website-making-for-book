@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Chapter Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_controls.css" />
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.min.js"></script>
+  
+</head>
+<body>
+  <img src="asset1.png" id="book-shadow" alt="shadow overlay">
+
+  <!-- ① Make Book button lives HERE, always visible -->
+  <button id="make-book">Make Book</button>
+
+  <!-- ② Overlay container only for checklist + cancel -->
+  <div id="controls">
+    <ul id="print-check"></ul>
+    <button id="cancel">Cancel</button>
+  </div>
+
+  <div id="viewer"></div>
+
+  <div id="viewer"></div>
+
+  <script src="script.js" defer></script>
+  <script src="export.js" defer></script>
+</body>
+</html>
