@@ -1,0 +1,262 @@
+/* reset & box-sizing */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .slider-group {
+    padding: 1rem;
+  }
+  /* full‐p
+  age grid: 6 equal columns */
+  .container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;               /* ← make sure there’s zero gutter */
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  /* LEFT PANEL spans cols 1–2 */
+  .controls {
+    border-right: 1px solid #3CAE58;
+    font-size: 80%;
+    grid-column: 1 / span 2;
+    padding: 0rem;
+    overflow-x: hidden;
+    background: #ffffff; /* placeholder */
+    font-family: 'ABCDinamo', sans-serif;
+    font-weight: 500;   
+    color: #3CAE58;
+  }
+  
+  /* simple logo styling */
+  .logo  {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: 0%;
+    max-width: 28rem;
+  }
+  .logoimg {
+    padding: 1rem;
+    max-width: 28rem;
+  }
+  /* each axis slider */
+  .axis-control {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .axis-control label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+  }
+  .axis-control input[type="range"] {
+    width: 100%;
+  }
+  
+  /* project parts list */
+  .project-parts {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  .project-parts h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  .project-parts ol {
+    padding-left: 1.2rem;
+  }
+  .project-parts li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* RIGHT PANEL spans cols 3–6 */
+  .display {
+    padding: 1rem;
+    grid-column: 3 / span 4;
+    position: relative;      /* establish stacking context */
+    overflow: hidden;        /* clip any overflow */
+    margin: 0;
+    padding: 0;
+  
+  
+    /* 5. Full-bleed background */
+ 
+  
+    /* keep your text centred on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .display .bg-image {
+    position: absolute;
+    top: 0;
+    left: -500;
+    width: 120%;
+    height: 100%;
+    object-fit: cover;       /* cover the entire container */
+    object-position: center; /* center cropping */
+    z-index: -1;             /* send it behind your text */
+  }
+  /* the editable text block */
+
+  @font-face {
+    font-family: 'softerfont';
+    src: url('/fonts/latest_versionVF.ttf') format('opentype');
+   
+  }
+
+  #text {
+    padding: 1rem;
+    margin-left: 50px;
+    line-height: 0.8;
+    width: 80%;
+    max-width: 800px;
+    font-family: 'softerfont', sans-serif;
+    font-size: 10vw;          /* scales with viewport width */
+    
+    text-align: center;
+    outline: none;
+    /* default variation settings; these will be overridden by JS */
+    font-variation-settings: 
+      'SHPE' 0,
+      'MODL' 0,
+      'DIST' 0;
+    word-wrap: break-word;
+    color: #3CAE58;
+    animation: floatAnimation 2s infinite alternate, textShadowAnimation 2s infinite alternate;
+    
+  }
+  
+
+
+  .controls .about {
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    font-size: 110%;
+  }
+  
+  .controls .about > div {
+    /* narrow column for the header */
+    flex: 0 0 auto;
+  }
+  
+  .controls .about > p {
+    /* paragraph takes remaining width */
+    flex: 1;
+    max-width: 80%;
+  }
+
+  .controls hr.divider {
+    
+    border: none;                /* strip any default border */
+    border-top: 1px solid #3CAE58;;  /* draw a solid green line */
+    width: 150%;    
+                 /* span the full width of your controls panel */
+              /* your vertical spacing */
+    box-sizing: content-box;     /* ensure width isn’t eaten by padding/border */
+    height: 0;                   /* height comes from the border, so set content height to zero */
+  }
+  .about {
+    font-size: ;
+    display: flex;            /* lays its children out in a row */
+  flex-wrap: wrap;          /* optional—lets them wrap to the next line if there’s not enough space */
+  gap: 1rem;                /* optional—adds consistent spacing between the items */
+  align-items: flex-start;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;  /* remove default Chrome/Safari styling */
+    appearance: none;          /* remove default styling in modern browsers */
+    width: 80%;
+    background: transparent;   /* otherwise white in Firefox */
+    margin: 1rem 0;
+  }
+  
+  /* 2. Focus outline off (optional) */
+  input[type="range"]:focus {
+    outline: none;
+  }
+  
+  /* 3. The track (the “rail”) */
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 80%;
+    height: 2px;
+    background: #3CAE58;
+    border-radius: 1px;
+  }
+  input[type="range"]::-moz-range-track {
+    width: 80%;
+    height: 2px;
+    background: #3CAE58;
+    border-radius: 1px;
+  }
+  input[type="range"]::-ms-track {
+    width: 80%;
+    height: 2px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower,
+  input[type="range"]::-ms-fill-upper {
+    background: #3CAE58;
+    border-radius: 1px;
+  }
+  
+  /* 4. The thumb (the draggable circle) */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #3CAE58;
+    border-radius: 50%;
+    margin-top: -7px; /* center thumb on the 2px track */
+    cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #3CAE58;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  input[type="range"]::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    background: #3CAE58;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* 5. IE track fix */
+  input[type="range"]::-ms-tooltip {
+    display: none;
+  }
+
+  /* TYPEWRITER EFFECT */
+
+  
+  @keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50%       { border-color: #3CAE58; }
+  }
+  
+  .typewriter {
+    animation: blink-caret 0.8s step-end infinite;
+  }
+  
