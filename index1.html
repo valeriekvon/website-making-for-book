@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Variable Font Tester</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="container">
+    <!-- LEFT PANEL (2 columns) -->
+    <aside class="controls">
+      <!-- Logo / Header -->
+      <div class="logo">
+        <img class="logoimg" src="/assets/Asset 3@4x.png" alt="Softer Tools">
+      </div>
+      <hr class="divider">
+      <div class="about">
+       <div><p>about</p> </div> 
+        <p>
+          A softer tool is not simply a device or piece of software,
+          but an approach to technology that is intentionally shaped
+          by values of agency, reflection, and ethical interaction.
+          Where traditional “hard” or prescriptive tools demand that
+          users adapt themselves to rigid, invisible processes, a
+          softer tool is designed for adaptability, transparency, and care.
+        </p>
+      </div>
+    
+      <!-- horizontal divider -->
+      <hr class="divider">
+      <!-- 3 Axis Sliders -->
+      <div class="slider-group">
+        <label for="wght">Weight </label>
+        <input
+          type="range" id="wght"
+          min="0" max="1" step="0.1"
+          value="0"
+        >
+      </div>
+    
+      <div class="slider-group">
+        <label for="wdth">Width </label>
+        <input
+          type="range" id="wdth"
+          min="0" max="100" step="1"
+          value="0"
+        >
+      </div>
+    
+      <div class="slider-group">
+        <label for="opsz"> Size </label>
+        <input
+          type="range" id="opsz"
+          min="50.1" max="100" step="1"
+          value="50.1"
+        >
+      </div>
+      <hr class="divider">
+      <!-- Two Parts of the Project -->
+      <div class="project-parts">
+        <h2>TWO PARTS OF THE PROJECT</h2>
+        <hr class="divider">
+        <ol>
+          <li>Publication</li>
+          <li>Type tool</li>
+        </ol>
+      </div>
+    </aside>
+
+    <!-- RIGHT PANEL (4 columns) -->
+    <main class="display">
+        <img src="assets/background.png" 
+        alt="" 
+        class="bg-image">
+ 
+      <div id="text" contenteditable="true" class="typewriter">
+      
+      </div>
+    </main>
+  </div>
+
+  <script src="script1.js"></script>
+</body>
+</html>
