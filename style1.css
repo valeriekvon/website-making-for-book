@@ -12,7 +12,20 @@ html, body {
     box-sizing: border-box;
   }
   .slider-group {
-    padding: 1rem;
+    padding: 0.5rem;
+   
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        gap: 1rem;               /* space between label & slider */
+        margin-bottom: 0rem;
+      
+  }
+
+  .slider-group input[type="range"] {
+    padding: 0.5rem;
+    justify-self: end;       /* right of its cell */
+    max-width: 300px;             /* fill its 1fr column */
   }
   /* full‐p
   age grid: 6 equal columns */
@@ -45,8 +58,9 @@ html, body {
     max-width: 28rem;
   }
   .logoimg {
+    mix-blend-mode: normal;
     padding: 1rem;
-    max-width: 28rem;
+    max-width: 32vw;
   }
   /* each axis slider */
   .axis-control {
@@ -65,7 +79,7 @@ html, body {
   /* project parts list */
   .project-parts {
     padding: 1rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
   .project-parts h2 {
     font-size: 1rem;
@@ -112,7 +126,7 @@ html, body {
 
   @font-face {
     font-family: 'softerfont';
-    src: url('/fonts/latest_versionVF.ttf') format('opentype');
+    src: url('/website-making-for-book/fonts/latest_versionVF.ttf') format('opentype');
    
   }
 
@@ -183,6 +197,7 @@ html, body {
     width: 80%;
     background: transparent;   /* otherwise white in Firefox */
     margin: 1rem 0;
+    align-content: end;
   }
   
   /* 2. Focus outline off (optional) */
@@ -193,19 +208,19 @@ html, body {
   /* 3. The track (the “rail”) */
   input[type="range"]::-webkit-slider-runnable-track {
     width: 80%;
-    height: 2px;
+    height: 1.5px;
     background: #3CAE58;
     border-radius: 1px;
   }
   input[type="range"]::-moz-range-track {
     width: 80%;
-    height: 2px;
+    height: 1.5px;
     background: #3CAE58;
     border-radius: 1px;
   }
   input[type="range"]::-ms-track {
     width: 80%;
-    height: 2px;
+    height: 1.5px;
     background: transparent;
     border-color: transparent;
     color: transparent;
@@ -219,11 +234,11 @@ html, body {
   /* 4. The thumb (the draggable circle) */
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     background: #3CAE58;
     border-radius: 50%;
-    margin-top: -7px; /* center thumb on the 2px track */
+    margin-top: -5px; /* center thumb on the 2px track */
     cursor: pointer;
   }
   input[type="range"]::-moz-range-thumb {
@@ -260,3 +275,28 @@ html, body {
     animation: blink-caret 0.8s step-end infinite;
   }
   
+
+  .projectparts {
+    margin-top: 5%;
+    font-family: 'softerfont', sans-serif;
+    font-size: 4vw;    
+    margin-left: 10%;
+    font-variation-settings: 
+    'wght' 0,
+    'wdth' 0,
+    'opsz' 100;
+  }
+
+  aside.controls hr.divider {
+    /* remove any inherited margin/padding */
+    margin: 0rem 0;        /* vertical-only spacing */
+    padding: 0;
+  
+    /* full-width inside the controls panel */
+    width: 100%;
+    box-sizing: border-box;
+  
+    /* draw your line */
+    border: none;
+    border-top: 1px solid #3CAE58;
+  }
