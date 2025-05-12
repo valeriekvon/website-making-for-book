@@ -5,26 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PDF Chapter Viewer</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style1.css" />
   <link rel="stylesheet" href="style_controls.css" />
   <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.min.js"></script>
-  
 </head>
 <body>
+  <!-- keeps your shadow overlay exactly where it was -->
   <img src="Asset1.png" id="book-shadow" alt="shadow overlay">
 
-  <!-- ① Make Book button lives HERE, always visible -->
+  <!-- Make Book stays absolutely positioned, unchanged -->
   <button id="make-book">Make Book</button>
 
-  <!-- ② Overlay container only for checklist + cancel -->
-  <div id="controls">
-    <ul id="print-check"></ul>
-    <button id="cancel">Cancel</button>
+  <div class="container">
+    <!-- LEFT PANEL: fixed header + scrollable chapters -->
+    <aside class="controls">
+      <!-- HEADER: logo + about text -->
+      <div class="controls-header">
+        <div class="logo">
+          <img class="logoimg" src="assets/Asset 3@4x.png" alt="Softer Tools">
+        </div>
+        <hr class="divider">
+        <div class="about">
+          <div><p>about</p></div>
+          <p>
+            A softer tool is not simply a device or piece of software,
+            but an approach to technology that is intentionally shaped
+            by values of agency, reflection, and ethical interaction.
+            Where traditional “hard” or prescriptive tools demand that
+            users adapt themselves to rigid, invisible processes, a
+            softer tool is designed for adaptability, transparency, and care.
+          </p>
+        </div>
+        <hr class="divider">
+      </div>
+      <div class="project-parts">
+        <p>TWO PARTS OF THE PROJECT</p>
+        
+        <hr class="divider">
+        <ol class="projectparts">
+          <p>1. Publication</p>
+        </ol>
+        </div>
+          <hr class="divider">
+          <div class="project-parts">
+            <ol class="projectparts">
+          <p>2. Type tool</p>
+        </ol>
+      </div>
+      <!-- CHAPTERS: scrollable checklist + cancel -->
+      <div class="chapters">
+        <div id="controls">
+          <ul id="print-check"></ul>
+          <button id="cancel">Cancel</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT PANEL: your PDF viewer -->
+    <main class="display">
+      <div id="viewer"></div>
+    </main>
   </div>
-
-  <div id="viewer"></div>
-
-  <div id="viewer"></div>
 
   <script src="script.js" defer></script>
   <script src="export.js" defer></script>
