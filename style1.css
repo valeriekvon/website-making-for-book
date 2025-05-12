@@ -33,7 +33,7 @@ html, body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 0;               /* ← make sure there’s zero gutter */
-    height: 100vh;
+   
     width: 100vw;
   }
   
@@ -91,6 +91,15 @@ html, body {
   }
   .project-parts li {
     margin-bottom: 0.5rem;
+  }
+
+  .project-parts:hover {
+    color: #3CAE58;
+    text-shadow:0px 0px 30px #3CAE58;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
   }
   
   /* RIGHT PANEL spans cols 3–6 */
@@ -293,7 +302,7 @@ html, body {
     padding: 0;
   
     /* full-width inside the controls panel */
-    width: 100%;
+    width: 140%;
     box-sizing: border-box;
   
     /* draw your line */
