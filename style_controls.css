@@ -10,6 +10,7 @@
     justify-content: center;
     opacity: 0;
     pointer-events: none;
+    overflow-y: auto;
     transition: opacity 0.3s ease;
     z-index: 1000;
   }
@@ -17,6 +18,13 @@
     opacity: 1;
     pointer-events: all;
   }
+
+  /* Make both left and right panels scrollable if their content overflows */
+aside.controls,
+main.display {
+         /* fill the viewport height */
+  overflow-y: auto;     /* allow vertical scrolling */
+}
 /* regular weight (400) */
 @font-face {
     font-family: 'ABCDinamo';
@@ -37,6 +45,8 @@
   
   /* checklist styling */
   #print-check {
+    z-index: 2000;
+    position:absolute;
     font-family: 'ABCDinamo', sans-serif;
     font-weight: 500;   
     width: 50vw;
@@ -67,10 +77,10 @@
     font-family: 'ABCDinamo', sans-serif;
     font-weight: 500; 
     position: fixed;
-    top: 8px; right: 8px;
+    top: 8px; right: 40px;
     z-index: 1001;
     background: rgba(100, 100, 100, 0.1);
-    color: #000000;
+    color: #ffffff;
     border: none;
     border-radius: 6px;
     padding: 4px 8px;
