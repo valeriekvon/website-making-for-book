@@ -32,7 +32,7 @@ html, body {
   .container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 0;               /* ← make sure there’s zero gutter */
+    gap: 0;               /* ← make sure there's zero gutter */
    
     width: 100vw;
   }
@@ -136,7 +136,7 @@ html, body {
 
   @font-face {
     font-family: 'softerfont';
-    src: url('/website-making-for-book/fonts/latest_versionVF.ttf') format('opentype');
+    src: url('/fonts/latest_versionVF.ttf') format('opentype');
    
   }
 
@@ -190,13 +190,13 @@ html, body {
     width: 150%;    
                  /* span the full width of your controls panel */
               /* your vertical spacing */
-    box-sizing: content-box;     /* ensure width isn’t eaten by padding/border */
+    box-sizing: content-box;     /* ensure width isn't eaten by padding/border */
     height: 0;                   /* height comes from the border, so set content height to zero */
   }
   .about {
-    font-size: ;
+   
     display: flex;            /* lays its children out in a row */
-  flex-wrap: wrap;          /* optional—lets them wrap to the next line if there’s not enough space */
+  flex-wrap: wrap;          /* optional—lets them wrap to the next line if there's not enough space */
   gap: 1rem;                /* optional—adds consistent spacing between the items */
   align-items: flex-start;
   }
@@ -215,7 +215,7 @@ html, body {
     outline: none;
   }
   
-  /* 3. The track (the “rail”) */
+  /* 3. The track (the "rail") */
   input[type="range"]::-webkit-slider-runnable-track {
     width: 80%;
     height: 1.5px;
@@ -311,7 +311,7 @@ html, body {
     border-top: 1px solid #3CAE58;
   }
 
-  @keyframes blink {
+  /* @keyframes blink {
     0% {
         opacity: 1;
     }
@@ -323,9 +323,98 @@ html, body {
     100% {
         opacity: 1;
     }
-  }
+  } */
   
   #text {
   
     animation: blink 2s infinite;
   }
+
+  .display {
+    position: relative;  /* ensure our edge labels live on top */
+  }
+  
+  /* shared edge-label styles */
+  .edge-label {
+    position: absolute;
+    font-family: 'ABCDinamo', sans-serif;
+    font-size: 0.6rem;       /* tweak as needed */
+    color: #3CAE58;
+    white-space: nowrap;
+    /* background: rgba(255,255,255,0.7);  */
+    padding: 0.25rem 0.5rem;
+    pointer-events: none;    /* clicks pass through */
+  }
+  
+  /* individual positions */
+  .edge-label.top {
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .edge-label.bottom {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .edge-label.left {
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+  }
+  
+  .edge-label.right {
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+  
+  /* style the percent spans if you like */
+  .edge-label .percent {
+    font-weight: normal;
+    margin-left: 0.25rem;
+  }
+  
+  .control-buttons {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    border: 2px solid #3CAE58;
+    background: white;
+    color: #3CAE58;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: #3CAE58;
+    color: white;
+}
+
+.control-btn.active {
+    background: #3CAE58;
+    color: white;
+}
+
+#video {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    height: 240px;
+    border: 2px solid #3CAE58;
+    border-radius: 8px;
+    z-index: 999;
+}
+  
