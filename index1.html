@@ -5,14 +5,45 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Variable Font Tester</title>
   <link rel="stylesheet" href="style1.css">
+ 
+ <!-- 1) TensorFlow full bundle (core + converter + backends) -->
+<!-- Load the full TensorFlow.js bundle (core + converter + webgl & cpu backends) -->
+<!-- TF.js core -->
+<!-- in your <head> (remove tfjs & handpose scripts) -->
+
+<!-- 1) TF.js core + converter + backends -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+
+<!-- 2) Hand‐Pose‐Detection model -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+
+<!-- 3) MediaPipe Hands runtime -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+
+<!-- Your code last -->
+<script src="hand-control.js"></script>
+
+
+
+
+
+
 </head>
 <body>
+  <!-- Add control buttons at the top -->
+  <div class="control-buttons">
+    <button id="mouseControl" class="control-btn active">Mouse Control</button>
+    <button id="handControl" class="control-btn">Hand Control</button>
+  </div>
+  <!-- Add video element for hand tracking (hidden by default) -->
+  <video id="video" style="display: none"></video>
+
   <div class="container">
     <!-- LEFT PANEL (2 columns) -->
     <aside class="controls">
       <!-- Logo / Header -->
       <div class="logo">
-        <img class="logoimg" src="/website-making-for-book/assets/Asset 3@4x.png" alt="Softer Tools">
+        <img class="logoimg" src="/assets/Asset 3@4x.png" alt="Softer Tools">
       </div>
       <hr class="divider">
       <div class="about">
@@ -21,7 +52,7 @@
           A softer tool is not simply a device or piece of software,
           but an approach to technology that is intentionally shaped
           by values of agency, reflection, and ethical interaction.
-          Where traditional “hard” or prescriptive tools demand that
+          Where traditional "hard" or prescriptive tools demand that
           users adapt themselves to rigid, invisible processes, a
           softer tool is designed for adaptability, transparency, and care.
         </p>
@@ -63,13 +94,13 @@
         
         <hr class="divider">
         <ol class="projectparts">
-          <p>1. Publication</p>
+          <p><a href="http://valeriekvon.github.io/website-making-for-book/index.html">1. Publication</a></p>
         </ol>
         </div>
           <hr class="divider">
           <div class="project-parts">
             <ol class="projectparts">
-          <p>2. Type tool</p>
+          <p><a href="http://valeriekvon.github.io/website-making-for-book/index1.html">2. Type tool</a></p>
         </ol>
       </div>
     
@@ -78,16 +109,22 @@
 
     <!-- RIGHT PANEL (4 columns) -->
     <main class="display">
-        <img src="/website-making-for-book/assets/background.png" 
+        <img src="assets/background.png" 
         alt="" 
         class="bg-image">
+        <div class="edge-label top">BIG <span class="percent">0%</span></div>
+        <div class="edge-label bottom">SMALL <span class="percent">100%</span></div>
+        <div class="edge-label left"> NORMAL <span class="percent">50%</span></div>
+        <div class="edge-label right">DISTORTED<span class="percent">50%</span></div>
  
       <div id="text" contenteditable="true" class="typewriter">
-      
       </div>
+   
     </main>
-  </div>
 
+  </div>
+  <script src="mouse-percentage.js"></script>
+  
   <script src="script1.js"></script>
 </body>
 </html>
