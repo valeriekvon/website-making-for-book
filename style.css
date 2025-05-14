@@ -31,7 +31,7 @@ body {
     
   }
   
-  /* Each 2-page spread “child” */
+  /* Each 2-page spread "child" */
   .spread {
     /* background-color: black; */
     flex-shrink: 0;
@@ -139,7 +139,7 @@ aside.controls {
 
   hr.divider {
     width: calc(100% + 40px);  /* add back both left+right padding */
-    margin-left: -20px;        /* shift it left by the container’s padding */
+    margin-left: -20px;        /* shift it left by the container's padding */
   }
   
   .project-parts:hover {
@@ -154,3 +154,55 @@ aside.controls {
   text-decoration: none;
   color: #3CAE58;
  } 
+
+.edge-label {
+    position: fixed;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3CAE58;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edge-label .percent {
+    color: #3CAE58;
+    font-weight: normal;
+}
+
+.edge-label.top {
+    top: 20px;
+    right: 20px;
+}
+
+.edge-label.bottom {
+    bottom: 20px;
+    right: 20px;
+}
+
+.edge-label.left {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.edge-label.right {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* CSS Custom Properties for dynamic values */
+:root {
+    --top-percentage: 0%;
+    --bottom-percentage: 100%;
+    --left-percentage: 50%;
+    --right-percentage: 50%;
+}
+
+/* Remove the old percentage styles */
+.percentage, .your-element {
+    display: none;
+} 
