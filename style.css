@@ -207,22 +207,21 @@ aside.controls {
     display: none;
 } 
 
-/* mobile-blocker overlay */
+/* 1) Overlay: covers entire screen */
 #mobile-blocker {
-  display: none;               /* hidden by default */
+  display: none;              /* hidden by default */
   position: fixed;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(4px);
-  z-index: 9999;               /* atop everything */
+  z-index: 9999;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
-#mobile-blocker__message,
+/* 2) Centered message box */
 .mobile-blocker__message {
   font-family: 'ABCDinamo', sans-serif;
   color: #3CAE58;
@@ -231,17 +230,17 @@ aside.controls {
   border: 2px solid #3CAE58;
   border-radius: 8px;
   background: white;
+  text-align: center;
 }
 
-/* when this class is added, show the blocker */
+/* 3) When body has .mobile-only, show overlay and disable app beneath */
 body.mobile-only #mobile-blocker {
   display: flex;
 }
-/* optionally, prevent scrolling on the app behind */
 body.mobile-only #app {
-  overflow: hidden;
   pointer-events: none;
   user-select: none;
+  opacity: 0.5;  /* optional dimming */
 }
 
 
