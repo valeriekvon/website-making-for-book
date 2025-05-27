@@ -518,3 +518,39 @@ a {
   display: block;        /* make it a block so margin auto works */
   margin: 1rem auto;     /* 1rem vertical spacing, auto horizontal = centered */
 }
+#mobile-blocker {
+  display: none;               /* hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);
+  z-index: 9999;               /* atop everything */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#mobile-blocker__message,
+.mobile-blocker__message {
+  font-family: 'ABCDinamo', sans-serif;
+  color: #3CAE58;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border: 2px solid #3CAE58;
+  border-radius: 8px;
+  background: white;
+}
+
+/* when this class is added, show the blocker */
+body.mobile-only #mobile-blocker {
+  display: flex;
+}
+/* optionally, prevent scrolling on the app behind */
+body.mobile-only #app {
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
