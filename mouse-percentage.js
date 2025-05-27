@@ -77,4 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Optional: You can choose to reset values here or keep the last values
         // For now, we'll keep the last values
     });
+
+
+
+
+    
 }); 
+
