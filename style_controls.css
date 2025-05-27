@@ -12,7 +12,7 @@
     pointer-events: none;
     overflow-y: auto;
     transition: opacity 0.3s ease;
-    z-index: 1000;
+    z-index: 100000;
   }
   #controls.show {
     opacity: 1;
@@ -45,7 +45,7 @@ main.display {
   
   /* checklist styling */
   #print-check {
-    z-index: 2000;
+    z-index: 100000;
     position:absolute;
     font-family: 'ABCDinamo', sans-serif;
     font-weight: 500;   
@@ -60,7 +60,7 @@ main.display {
     list-style: none;
     margin-bottom: 1em;
   }
-  #print-check label {
+  #print-check  {
     font-family: 'ABCDinamo', sans-serif;
   font-weight: 500;   
     display: block;
@@ -78,7 +78,7 @@ main.display {
     font-weight: 500; 
     position: fixed;
     top: 8px; right: 40px;
-    z-index: 1001;
+    z-index: 4001;
     background: rgba(100, 100, 100, 0.1);
     color: #ffffff;
     border: none;
@@ -98,6 +98,7 @@ main.display {
   
   /* Cancel button inside overlay */
   #cancel {
+    position: absolute;
     font-family: 'ABCDinamo', sans-serif;
     font-weight: 500; 
     background: transparent;
@@ -105,6 +106,11 @@ main.display {
     color: #fff;
     margin-top: 1em;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 5001;
+
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   }
   
+
