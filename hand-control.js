@@ -142,10 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
     disableHandControl();
     // your mouse-percentage.js still drives wght & wdth
   }
+  window.enableHandControl  = enableHandControl;
+window.disableHandControl = disableHandControl;
+
 
   btnHand.addEventListener('click',  enableHandControl);
   btnMouse.addEventListener('click', enableMouseControl);
 
   // kick off in mouse mode
   enableMouseControl();
+
 });
+
