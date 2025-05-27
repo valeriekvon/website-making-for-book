@@ -1,128 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>softer font</title>
   <link rel="stylesheet" href="style1.css">
- 
- <!-- 1) TensorFlow full bundle (core + converter + backends) -->
-<!-- Load the full TensorFlow.js bundle (core + converter + webgl & cpu backends) -->
-<!-- TF.js core -->
 
-<!-- 1) TF.js core + converter + backends -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+  <!-- TensorFlow.js and models -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
 
-<!-- 2) Hand‐Pose‐Detection model -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+  <!-- Core scripts -->
+  <script src="hand-control.js" defer></script>
+  <script src="mouse-percentage.js" defer></script>
+  <script src="script1.js" defer></script>
 
-<!-- 3) MediaPipe Hands runtime -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
-
-<!-- Your code last -->
-<script src="hand-control.js"></script>
-
-
-
-
-
-
+  
 </head>
 <body>
-  <!-- Add control buttons at the top -->
-  <div class="control-buttons">
-    <button id="mouseControl" class="control-btn active">Mouse Control</button>
-    <button id="handControl" class="control-btn">Hand Control</button>
-  </div>
-  <!-- Add video element for hand tracking (hidden by default) -->
-  <video id="video" style="display: none"></video>
+  <!-- Video for hand tracking (hidden until enabled) -->
+  <video id="video" class="hidden-video"></video>
 
   <div class="container">
-    <!-- LEFT PANEL (2 columns) -->
+    <!-- LEFT PANEL -->
     <aside class="controls">
-      <!-- Logo / Header -->
+      <!-- Logo -->
       <div class="logo">
         <img class="logoimg" src="/assets/Asset 3@4x.png" alt="Softer Tools">
       </div>
       <hr class="divider">
+
+      <!-- About Text -->
       <div class="about">
-       <div><p>about</p> </div> 
+        <div><p>about</p></div>
         <p>
-          In an age of digital maximalism, this project explores <span class="highlight-target" data-tag="publication">the emerging discourse 
-          of softer computing, tracing its historical, social, and technological roots. </span>
-          It contributes to a growing, communal practice of care and knowledge, sharing by 
-          responding to <span class="highlight-target" data-tag="type">technologies that prioritise agency, reflection, and ethical interaction. </span>
-          This small, <span class="highlight-target" data-tag="publication">personal investigation </span><span class="highlight-target" data-tag="type">reimagines how we engage with the software we use 
-          as creatives and graphic designers</span>, opening space to envision more adaptable, transparent, 
-          and open-source futures.
+          In an age of digital maximalism, this project explores
+          <span class="highlight-target" data-tag="publication">
+            the emerging discourse of softer computing, tracing its historical, social, and technological roots.
+          </span>
+          It contributes to a communal practice of care and knowledge,
+          responding to <span class="highlight-target" data-tag="type">
+            technologies that prioritise agency, reflection, and ethical interaction.
+          </span>
+          This personal investigation reimagines how we engage with the software we use as creatives and graphic designers,
+          opening space to envision more adaptable, transparent, and open-source futures.
         </p>
       </div>
-    
-      <!-- horizontal divider -->
       <hr class="divider">
-      <!-- 3 Axis Sliders -->
+
+      <!-- Mode Switcher -->
+      <div class="mode-switcher">
+        <div id="mouseControl" class="switch active">Mouse Control</div>
+        <div id="handControl"  class="switch">Hand Control</div>
+      </div>
+
+      <!-- Instruction panel -->
+      <div id="instructions" class="instructions"></div>
+
+      <hr class="divider">
+      <!-- Sliders -->
       <div class="slider-group">
         <label for="wght">Shape</label>
-        <input
-          type="range" id="wght"
-          min="0" max="1" step="0.1"
-          value="0"
-        >
+        <input type="range" id="wght" min="0" max="1" step="0.1" value="0">
       </div>
-    
       <div class="slider-group">
         <label for="wdth">Position</label>
-        <input
-          type="range" id="wdth"
-          min="0" max="100" step="1"
-          value="0"
-        >
+        <input type="range" id="wdth" min="0" max="100" step="1" value="0">
       </div>
-    
       <div class="slider-group">
         <label for="opsz">Size</label>
-        <input
-          type="range" id="opsz"
-          min="50.1" max="100" step="1"
-          value="50.1"
-        >
+        <input type="range" id="opsz" min="50.1" max="100" step="1" value="50.1">
       </div>
       <hr class="divider">
-      <!-- Two Parts of the Project -->
+
+      <!-- Project Parts -->
       <div class="project-parts">
-   
         <ol class="projectparts">
-          <p><a href="http://softer-tools.space/index.html">1. Publication</a></p>
-        </ol>
-        </div>
-          <hr class="divider">
-          <div class="project-parts">
-            <ol class="projectparts">
-          <p><a href="http://softer-tools.space/index1.html">2. Type tool</a></p>
+          <li><a href="http://softer-tools.space/index.html">1. Publication</a></li>
         </ol>
       </div>
-    
+      <hr class="divider">
+      <div class="project-parts">
+        <ol class="projectparts">
+          <li><a href="http://softer-tools.space/index1.html">2. Type tool</a></li>
+        </ol>
+      </div>
       <hr class="divider">
     </aside>
 
-    <!-- RIGHT PANEL (4 columns) -->
+    <!-- RIGHT PANEL -->
     <main class="display">
-        <img src="assets/background.png" 
-        alt="" 
-        class="bg-image">
-        <div class="edge-label top">BIG <span class="percent">0%</span></div>
-        <div class="edge-label bottom">SMALL <span class="percent">100%</span></div>
-        <div class="edge-label left"> NORMAL <span class="percent">50%</span></div>
-        <div class="edge-label right">DISTORTED<span class="percent">50%</span></div>
- 
-      <div id="text" contenteditable="true" class="typewriter">
-      </div>
-   
-    </main>
+      <!-- Background -->
+      <img src="assets/background.png" alt="" class="bg-image">
 
+      <!-- Edge Labels -->
+      <div class="edge-label top">BIG <span class="percent">0%</span></div>
+      <div class="edge-label bottom">SMALL <span class="percent">100%</span></div>
+      <div class="edge-label left">NORMAL <span class="percent">50%</span></div>
+      <div class="edge-label right">DISTORTED <span class="percent">50%</span></div>
+
+      <!-- Auto‐typing Text -->
+      <div id="text" contenteditable="true" class="typewriter"></div>
+    </main>
   </div>
-  <script src="mouse-percentage.js"></script>
-  
-  <script src="script1.js"></script>
+
+  <!-- Inline Mode & Instruction Logic -->
+  <script>
+    const mouseBtn = document.getElementById('mouseControl');
+    const handBtn  = document.getElementById('handControl');
+    const instrDiv = document.getElementById('instructions');
+   
+
+
+    // Instructions text
+    const texts = {
+      mouse: '<strong>How to use Mouse Control?</strong><br><br>1. Move your mouse over the right panel to warp the font live.<br>2. Then fine-tune shape, width & size with the sliders below.',
+      hand:  '<strong>How to use Hand Control?</strong><br><br>1. Present your hands to the camera.<br>2. Pinch your thumb and index finger to adjust.<br>• <strong>Left hand:</strong> changes the module size.<br>• <strong>Right hand:</strong> alters the letterform abstraction.'
+    };
+
+    function showInstructions(mode) {
+      instrDiv.innerHTML = texts[mode];
+      instrDiv.classList.add('show');
+    }
+
+
+    
+   
+
+    // Mouse Control activation
+    mouseBtn.addEventListener('click', () => {
+      mouseBtn.classList.add('active'); handBtn.classList.remove('active');
+      instrDiv.classList.remove('show'); setTimeout(() => showInstructions('mouse'), 100);
+      stopTyping(); startTyping(textEl);
+      if (typeof disableHandControl === 'function') disableHandControl();
+      
+    });
+
+    // Hand Control activation
+    handBtn.addEventListener('click', async () => {
+      handBtn.classList.add('active'); mouseBtn.classList.remove('active');
+      instrDiv.classList.remove('show'); setTimeout(() => showInstructions('hand'), 100);
+      stopTyping();
+      if (typeof enableHandControl === 'function') await enableHandControl();
+     
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      startTyping(textEl);
+      showInstructions('mouse');
+    });
+  </script>
 </body>
 </html>
