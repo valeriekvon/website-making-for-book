@@ -25,7 +25,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const el    = document.getElementById('text');
     const str   = 'This is a softer tool';
-    const speed = 80;       // ms per character
+    const speed = 81;       // ms per character
     let   i     = 0;
   
     function type() {
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Kick it off
     type();
   });
-  
   document.querySelector('.project-parts a[href*="index.html"]').addEventListener('mouseover', () => {
     document.querySelectorAll('[data-tag="publication"]').forEach(el => el.classList.add('highlight'));
   });
