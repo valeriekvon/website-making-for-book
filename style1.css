@@ -490,5 +490,31 @@ a {
     max-height: 200px;
     margin-bottom: 1rem;
   }
+  
+  .download-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #3CAE58;
+    background: white;
+    color: #3CAE58;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'ABCDinamo', sans-serif;
+    transition: background 0.2s ease, color 0.2s ease;
 
   
+  }
+  
+  .download-btn:hover {
+    background: #3CAE58;
+    color: white;
+  }
+  .slider-group button {
+    grid-column: 1 / -1;    /* span from the first to the last column */
+    justify-self: center;   /* center within its grid cell */
+  }
+
+  /* ensure the button shrinks to its content and then centers */
+#downloadFontFile {
+  display: block;        /* make it a block so margin auto works */
+  margin: 1rem auto;     /* 1rem vertical spacing, auto horizontal = centered */
+}
