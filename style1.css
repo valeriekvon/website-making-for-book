@@ -7,7 +7,7 @@ html, body {
   }
 
 * {
-    margin: 2px;
+    margin: 0px;
   /* padding-left: 16px; */
     box-sizing: border-box;
   }
