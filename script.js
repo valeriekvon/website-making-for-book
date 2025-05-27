@@ -106,3 +106,13 @@ document.querySelector('.project-parts a[href*="index1.html"]').addEventListener
 document.querySelector('.project-parts a[href*="index1.html"]').addEventListener('mouseout', () => {
   document.querySelectorAll('[data-tag="type"]').forEach(el => el.classList.remove('highlight'));
 });
+
+
+(function() {
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini/i
+                   .test(navigator.userAgent);
+  if (isMobile) {
+    // add a class to <body> so our CSS kicks in
+    document.body.classList.add('mobile-only');
+  }
+})();
