@@ -429,3 +429,8 @@ html, body {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
+
+a {
+  text-decoration: none;
+  color: #3CAE58;
+ } 
