@@ -8,7 +8,7 @@ html, body {
 
 * {
     margin: 0;
-    padding: 0;
+  /* padding-left: 16px; */
     box-sizing: border-box;
   }
   .slider-group {
@@ -50,11 +50,13 @@ html, body {
     font-weight: 500;   
     color: #3CAE58;
   }
-  
+  .label {
+    padding-left: 16px;
+  }
   /* simple logo styling */
   .logo  {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     margin-left: 0%;
     max-width: 28rem;
   }
@@ -71,6 +73,7 @@ html, body {
   .axis-control label {
     display: block;
     margin-bottom: 0.25rem;
+    padding-left: 16px;
     font-weight: bold;
   }
   .axis-control input[type="range"] {
