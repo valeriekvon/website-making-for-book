@@ -116,3 +116,11 @@ document.querySelector('.project-parts a[href*="index1.html"]').addEventListener
     document.body.classList.add('mobile-only');
   }
 })();
+
+const overlay = document.getElementById('use-intructions');
+overlay.classList.add('show');
+
+// clicking _anywhere_ on the overlay (including the text) should close it:
+overlay.addEventListener('click', () => {
+  overlay.classList.remove('show');
+});
