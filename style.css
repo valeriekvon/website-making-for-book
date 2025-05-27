@@ -60,18 +60,20 @@ body {
   .chapter::-webkit-scrollbar {
     display: none;
     }
-  #book-shadow {
-    position: fixed;
-    /* top: 0; */
-    left: 67%;
-    transform: translateX(-50%);
-    height: 100vh;
-    z-index: 1000;
-    pointer-events: none;
-    opacity: 0.6;
-    mix-blend-mode: multiply;
+    main.display {
+      position: relative; /* ensure absolute children are relative */
   }
-    
+  #book-shadow {
+      position: fixed;
+      top: 0;
+      left: 66.6667vw;
+      transform: translateX(-50%);
+      height: 100vh;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0.6;
+      mix-blend-mode: multiply;
+  }
 
   /* Allow grid items to honor their overflow settings */
 aside.controls,
