@@ -70,3 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .forEach(el => el.classList.remove('highlight'))
   );
 });
+(function() {
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini/i
+                   .test(navigator.userAgent);
+  if (isMobile) {
+    // add a class to <body> so our CSS kicks in
+    document.body.classList.add('mobile-only');
+  }
+})();
