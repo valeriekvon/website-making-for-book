@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Kick it off
     type();
   });
+  
   document.querySelector('.project-parts a[href*="index.html"]').addEventListener('mouseover', () => {
     document.querySelectorAll('[data-tag="publication"]').forEach(el => el.classList.add('highlight'));
   });
@@ -56,4 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.project-parts a[href*="index1.html"]').addEventListener('mouseout', () => {
     document.querySelectorAll('[data-tag="type"]').forEach(el => el.classList.remove('highlight'));
   });
+  
+
   
