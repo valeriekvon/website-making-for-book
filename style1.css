@@ -293,7 +293,7 @@ html, body {
     margin-top: 1%;
     font-family: 'softerfont', sans-serif;
     font-size: 4vw;    
-    margin-left: 10%;
+    /* margin-left: 10%; */
     font-variation-settings: 
     'wght' 0,
     'wdth' 0,
