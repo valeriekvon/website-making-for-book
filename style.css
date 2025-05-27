@@ -248,3 +248,38 @@ body.mobile-only #app {
 }
 
 
+
+
+
+/* FULL-SCREEN OVERLAY, HIDDEN BY DEFAULT */
+#use-intructions {
+  display: none;         /* only show when .show is present */
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(255,255,255,0.65);
+  
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+}
+
+/* SHOW & CENTER WHEN .show IS ADDED */
+#use-intructions.show {
+  display: flex;         /* now a flex container */
+  align-items: center;   /* vertical centering */
+  justify-content: center;/* horizontal centering */
+  text-align: center;
+}
+
+/* YOUR TEXT BOX */
+#use-intructions .intructions-text {
+  /* background: white; */
+  padding: 2rem;
+  border-radius: 8px;
+  font-family: 'ABCDinamo', sans-serif;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 90%;
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.2); */
+}
+
