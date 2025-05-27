@@ -410,16 +410,24 @@ html, body {
     color: white;
 }
 
-#video {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 320px;
-    height: 240px;
-    border: 2px solid #3CAE58;
-    border-radius: 8px;
-    z-index: 999;
+/* keeps your camera hidden until JS toggles it */
+.hidden-video {
+  display: none;
 }
+
+/* when JS removes .hidden-video, your #video rule will take over: */
+#video {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 320px;
+  height: 240px;
+  border: 2px solid #3CAE58;
+  border-radius: 8px;
+  z-index: 999;
+}
+
+
   
 .highlight{
   color: #3CAE58;
@@ -434,3 +442,53 @@ a {
   text-decoration: none;
   color: #3CAE58;
  } 
+
+
+ /* container: side-by-side tabs */
+.mode-switcher {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0rem;           /* space before sliders */
+}
+
+/* each “tab” */
+.mode-switcher .switch {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 0;
+
+  border: 2px solid #3CAE58;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #3CAE58;
+  background: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+/* active state: green fill, white text */
+.mode-switcher .switch.active {
+  background: #3CAE58;
+  color: #fff;
+}
+
+
+
+  .instructions {
+    width: 100%;
+    /* background: #eafaea; */
+    padding-left: 1rem;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 2s ease;
+    margin-bottom: 0rem;
+    color: #3CAE58;
+  }
+  .instructions.show {
+    /* large enough to reveal content */
+    max-height: 200px;
+    margin-bottom: 1rem;
+  }
+
+  
