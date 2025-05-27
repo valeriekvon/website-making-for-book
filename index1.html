@@ -21,6 +21,12 @@
   
 </head>
 <body>
+  <div id="mobile-blocker">
+    <div class="mobile-blocker__message">
+      🚧 Please experience this in desktop web 🚧
+    </div>
+  </div>
+  <div id="app">
   <!-- Video for hand tracking (hidden until enabled) -->
   <video id="video" class="hidden-video"></video>
 
@@ -107,7 +113,7 @@
       <div id="text" contenteditable="true" class="typewriter"></div>
     </main>
   </div>
-
+</div>
   <!-- Inline Mode & Instruction Logic -->
   <script>
     const mouseBtn = document.getElementById('mouseControl');
@@ -153,6 +159,7 @@
       startTyping(textEl);
       showInstructions('mouse');
     });
+   
   </script>
 </body>
 </html>
