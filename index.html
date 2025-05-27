@@ -11,8 +11,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.min.js"></script>
 </head>
 <body>
-  <!-- keeps your shadow overlay exactly where it was -->
-  <img src="Asset1.png" id="book-shadow" alt="shadow overlay">
+  <!-- overlay moved out of sidebar to avoid clipping -->
+  <div id="controls">
+    <ul id="print-check"></ul>
+    <button id="cancel">Cancel</button>
+  </div>
 
   <!-- Make Book stays absolutely positioned, unchanged -->
   <button id="make-book">Make Book</button>
@@ -29,36 +32,36 @@
         <div class="about">
           <div><p>about</p></div>
           <p>
-            A softer tool is not simply a device or piece of software,
-            but an approach to technology that is intentionally shaped
-            by values of agency, reflection, and ethical interaction.
-            Where traditional “hard” or prescriptive tools demand that
-            users adapt themselves to rigid, invisible processes, a
-            softer tool is designed for adaptability, transparency, and care.
+            In an age of digital maximalism, this project explores <span class="highlight-target" data-tag="publication">the emerging discourse 
+            of softer computing, tracing its historical, social, and technological roots. </span>
+            It contributes to a growing, communal practice of care and knowledge, sharing by 
+            responding to <span class="highlight-target" data-tag="type">technologies that prioritise agency, reflection, and ethical interaction. </span>
+            This small, <span class="highlight-target" data-tag="publication">personal investigation </span><span class="highlight-target" data-tag="type">reimagines how we engage with the software we use 
+            as creatives and graphic designers</span>, opening space to envision more adaptable, transparent, 
+            and open-source futures.
           </p>
         </div>
         <hr class="divider">
       </div>
+
       <div class="project-parts">
-        <p>TWO PARTS OF THE PROJECT</p>
-        
-        <hr class="divider">
         <ol class="projectparts">
           <p><a href="http://softer-tools.space/index.html">1. Publication</a></p>
         </ol>
-        </div>
-          <hr class="divider">
-          <div class="project-parts">
-            <ol class="projectparts">
+      </div>
+      <hr class="divider">
+      <div class="project-parts">
+        <ol class="projectparts">
           <p><a href="http://softer-tools.space/index1.html">2. Type tool </a></p>
         </ol>
       </div>
-      <!-- CHAPTERS: scrollable checklist + cancel -->
+      <hr class="divider">
+
+      <!-- CHAPTERS list without overlay -->
       <div class="chapters">
-        <div id="controls">
-          <ul id="print-check"></ul>
-          <button id="cancel">Cancel</button>
-        </div>
+        <ul id="chapter-list">
+          <!-- Populate via JS or manually list chapters here -->
+        </ul>
       </div>
     </aside>
 
@@ -70,5 +73,6 @@
 
   <script src="script.js" defer></script>
   <script src="export.js" defer></script>
+  <script src="script1.js"></script>
 </body>
 </html>
