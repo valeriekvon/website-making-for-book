@@ -6,9 +6,14 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 // 2) Your chapters (change file paths as needed)
 const chapters = [
-  { title: 'Chapter 1', file: 'pdfs/ch1.pdf' },
-  { title: 'Chapter 2', file: 'pdfs/ch2.pdf' },
-  { title: 'Chapter 3', file: 'pdfs/ch3.pdf' },
+  { title: 'Cover', file: 'pdfs/ch1.pdf' },
+  { title: 'Introduction', file: 'pdfs/ch2.pdf' },
+  { title: 'Chapter 1', file: 'pdfs/ch3.pdf' },
+  { title: 'Chapter 2', file: 'pdfs/ch4.pdf' },
+  { title: 'Chapter 3', file: 'pdfs/ch5.pdf' },
+  { title: 'Chapter 4', file: 'pdfs/ch6.pdf' },
+  { title: 'Afterword', file: 'pdfs/ch7.pdf' },
+
 ];
 
 // 3) Grab the container
