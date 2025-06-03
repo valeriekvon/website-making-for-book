@@ -78,7 +78,7 @@ main.display {
     font-weight: 500; 
     position: fixed;
     top: 8px; right: 40px;
-    z-index: 4001;
+    z-index: 100001;
     background: rgba(100, 100, 100, 0.1);
     color: #ffffff;
     border: none;
@@ -113,4 +113,3 @@ main.display {
   transform: translate(-50%, -50%);
   }
   
-
