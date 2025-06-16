@@ -28,7 +28,13 @@
   </div>
   <div id="app">
   <!-- Video for hand tracking (hidden until enabled) -->
-  <video id="video" class="hidden-video"></video>
+  <div class="video-wrapper">
+    <!-- your video stays exactly the same -->
+    <video id="video" class="hidden-video"></video>
+    <!-- new canvas uses the same “hidden-video” class so your CSS will hide/show it in lock-step -->
+    <canvas id="overlay" 
+           ></canvas>
+  </div>
 
   <div class="container">
     <!-- LEFT PANEL -->
