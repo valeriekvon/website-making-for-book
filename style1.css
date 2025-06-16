@@ -41,9 +41,10 @@ html, body {
   .controls {
     height: 100vh;
     border-right: 1px solid #3CAE58;
-    font-size: 80%;
+    font-size: 0.82rem;
     grid-column: 1 / span 2;
     padding: 0rem;
+    padding-left: 0.6rem;
     overflow-x: hidden;
     background: #ffffff; /* placeholder */
     font-family: 'ABCDinamo', sans-serif;
@@ -172,7 +173,7 @@ html, body {
     display: flex;
     gap: 1.5rem;
     align-items: flex-start;
-    font-size: 110%;
+    font-size: 0.82rem;
   }
   
   .controls .about > div {
@@ -396,7 +397,7 @@ html, body {
     background: white;
     color: #3CAE58;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     transition: all 0.3s ease;
 }
 
@@ -505,6 +506,7 @@ a {
   }
   
   .download-btn:hover {
+    
     background: #3CAE58;
     color: white;
   }
@@ -515,6 +517,7 @@ a {
 
   /* ensure the button shrinks to its content and then centers */
 #downloadFontFile {
+  font-size: 0.75rem;
   display: block;        /* make it a block so margin auto works */
   margin: 1rem auto;     /* 1rem vertical spacing, auto horizontal = centered */
 }
