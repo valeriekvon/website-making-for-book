@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const wghtSlider = document.getElementById('wght');
   const btnMouse   = document.getElementById('mouseControl');
   const btnHand    = document.getElementById('handControl');
+  const overlay    = document.getElementById('overlay');
+  const ctx        = overlay.getContext('2d');
+  const wrapper = document.querySelector('.video-wrapper');
+
 
   let detector      = null;
   let isHandActive  = false;
@@ -20,25 +24,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
   async function setupCamera() {
-    if (!navigator.mediaDevices?.getUserMedia) {
-      alert('Camera API not supported.');
-      return false;
-    }
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       video.srcObject = stream;
       video.playsInline = true;
       video.muted      = true;
       await new Promise(res => video.onloadedmetadata = res);
-      video.play();
-      video.style.transform = 'scaleX(-1)';
-      console.log('✅ Camera ready:', video.videoWidth, '×', video.videoHeight);
+      await video.play();
+  
+      // native resolution
+      const vw = video.videoWidth;
+      const vh = video.videoHeight;
+  
+      // wrapper is already CSS-fixed to 320×240
+      // but remember these for scaling
+      window._camW = vw;
+      window._camH = vh;
+  
+      // size the overlay buffer to match wrapper
+      overlay.width  = 320;
+      overlay.height = 240;
+      overlay.style.width  = '320px';
+      overlay.style.height = '240px';
+  
+      // mirror via CSS
+      video.style.transform   = 'scaleX(-1)';
+      overlay.style.transform = 'scaleX(-1)';
+  
       return true;
     } catch (err) {
-      console.error('❌ Camera error:', err);
+      console.error(err);
       return false;
     }
   }
+  
 
   function applySettings() {
     const wght = clamp(parseFloat(wghtSlider.value), 0, 100);
@@ -58,6 +77,31 @@ document.addEventListener('DOMContentLoaded', () => {
     return adj / (MAX_PINCH - PINCH_MIN);
   }
 
+  function drawFingerDots(hands) {
+    ctx.clearRect(0, 0, overlay.width, overlay.height);
+    ctx.fillStyle = 'rgba(255,0,0,0.8)';
+    const radius = 5;               // in display-px
+    const scaleX = overlay.width  / window._camW;
+    const scaleY = overlay.height / window._camH;
+  
+    hands.forEach(hand => {
+      [4,8].forEach(idx => {
+        const { x, y } = hand.keypoints[idx];
+        ctx.beginPath();
+        ctx.arc(
+          x * scaleX,
+          y * scaleY,
+          radius,
+          0, Math.PI*2
+        );
+        ctx.fill();
+      });
+    });
+  }
+  
+
+
+  
   function processHands(predictions) {
     if (predictions.length >= 2) {
       // two‐handed pinch
@@ -91,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     applySettings();
+    drawFingerDots(predictions);
   }
 
   async function predictLoop() {
@@ -130,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function disableHandControl() {
     if (!isHandActive) return;
     console.log('▶️ Disabling Hand Control');
+    wrapper.classList.add('hand-active');
     btnHand.classList.remove('active');
     video.style.display = 'none';
     isHandActive = false;
@@ -140,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnMouse.classList.add('active');
     btnHand.classList.remove('active');
     disableHandControl();
+    wrapper.classList.remove('hand-active');
     // your mouse-percentage.js still drives wght & wdth
   }
   window.enableHandControl  = enableHandControl;
