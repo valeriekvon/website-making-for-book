@@ -44,7 +44,7 @@ html, body {
     font-size: 0.82rem;
     grid-column: 1 / span 2;
     padding: 0rem;
-    padding-left: 0.6rem;
+    /* padding-left: 0.6rem; */
     overflow-x: hidden;
     background: #ffffff; /* placeholder */
     font-family: 'ABCDinamo', sans-serif;
